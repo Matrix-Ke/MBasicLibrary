@@ -19,7 +19,7 @@ target_compile_definitions(${SharedLibName} PUBLIC "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${ENGINE_SOURCE_RUNTIME_DIR}/Core")
 target_include_directories(${SharedLibName} PRIVATE "${THIRD_PARTY_DIR}/TBB/include")
 target_link_directories(${SharedLibName} PRIVATE ${THIRD_PARTY_DIR}/TBB/Lib)
-target_link_libraries(${SharedLibName} PRIVATE "dbghelp;Winmm;tbbmalloc.lib")
+target_link_libraries(${SharedLibName} PRIVATE "dbghelp;Winmm")
 
 if(MSVC)
     target_link_options(${SharedLibName} PRIVATE
