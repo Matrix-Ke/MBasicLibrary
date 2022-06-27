@@ -1,8 +1,5 @@
 cmake_minimum_required(VERSION 3.11)
 
-#===================================引入CMake配置文件========================
-include(CMake/CMakeInit.cmake)
-include(Cmake/SetupProject.cmake)
 
 # 防止直接在源文件下生成项目
 if(PROJECT_SOURCE_DIR STREQUAL PROJECT_BINARY_DIR)
@@ -19,9 +16,21 @@ Project(${PROJECT_NAME} LANGUAGES CXX VERSION ${PROJECT_VERSION})
 message(STATUS "Version: ${PROJECT_VERSION}")
 
 # Cmake划分目录
-set(ENGINE_ROOT_DIR "MBasicTool")
-set(SECOND_LEVEL_DIR "")
-set(ENGINE_SOURCE_RUNTIME_DIR ${CMAKE_SOURCE_DIR})
+set(ROOT_FOLDER_NAME "BasicTool")
+set(SECOND_FOLDER_NAME "")
+set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR})
+
+
+#===================================引入CMake配置文件========================
+if(NOT CMakeInit_FOUND)
+    message(STATUS ${PROJECT_NAME}.CMakeInit_FOUND = "Found ${CMakeInit_FOUND}"  )
+    include(CMake/CMakeInit.cmake)
+endif(NOT CMakeInit_FOUND)
+if(NOT SetupProject_FOUND)
+    message(STATUS ${PROJECT_NAME}.SetupProject_FOUND= "Found ${SetupProject_FOUND}" )
+    include(Cmake/SetupProject.cmake)
+endif(NOT SetupProject_FOUND)
+
 
 # ==================================引入外部包====================================
 # include(CMake/SetUpConfigurations.cmake)

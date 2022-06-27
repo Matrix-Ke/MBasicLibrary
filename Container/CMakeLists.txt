@@ -8,12 +8,12 @@ source_group("Source Files" FILES ${SourceFiles})
 add_library(${SharedLibName} SHARED ${HeaderFiles} ${SourceFiles})
 
 # source_group(TREE  ${CMAKE_CURRENT_SOURCE_DIR} FILES ${HeaderFiles} ${SourceFiles})
-set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ENGINE_ROOT_DIR}/${SECOND_LEVEL_DIR})
+set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${SECOND_FOLDER_NAME})
 
 # ==============================设置target属性=============================
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PUBLIC "UNICODE; _UNICODE")
-target_include_directories(${SharedLibName} PRIVATE "${ENGINE_SOURCE_RUNTIME_DIR}")
+target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
 
 # 此处必须要使用public链接， 因为Container是很多是header only 库，所以编译时候需要使用public选项
 # 当然如果不是header only那么可以使用private。
