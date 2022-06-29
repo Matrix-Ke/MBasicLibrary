@@ -14,7 +14,7 @@ set(PROJECT_VERSION 1.0.0)
 set(PROJECT_NAME "MBasicTool")
 Project(${PROJECT_NAME} LANGUAGES CXX VERSION ${PROJECT_VERSION})
 message(STATUS "Version: ${PROJECT_VERSION}")
-
+set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake)# 设置Include路径
 # Cmake划分目录
 set(ROOT_FOLDER_NAME "BasicTool")
 set(SECOND_FOLDER_NAME "")
@@ -24,11 +24,11 @@ set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR})
 #===================================引入CMake配置文件========================
 if(NOT CMakeInit_FOUND)
     message(STATUS ${PROJECT_NAME}.CMakeInit_FOUND = "Found ${CMakeInit_FOUND}"  )
-    include(CMake/CMakeInit.cmake)
+    include(CMakeFunction)
 endif(NOT CMakeInit_FOUND)
 if(NOT SetupProject_FOUND)
     message(STATUS ${PROJECT_NAME}.SetupProject_FOUND= "Found ${SetupProject_FOUND}" )
-    include(Cmake/SetupProject.cmake)
+    include(SetupProject)
 endif(NOT SetupProject_FOUND)
 
 
