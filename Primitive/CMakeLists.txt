@@ -14,7 +14,7 @@ set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${S
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
-
+target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # public 和 private 尽量多注意
 target_link_libraries(${SharedLibName} PRIVATE "Platform;Container;Math")
 

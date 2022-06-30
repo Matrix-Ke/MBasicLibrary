@@ -19,7 +19,9 @@ set(CMAKE_MODULE_PATH ${CMAKE_SOURCE_DIR}/CMake)# 设置Include路径
 set(ROOT_FOLDER_NAME "BasicTool")
 set(SECOND_FOLDER_NAME "")
 set(PROJECT_SOURCE_DIR ${CMAKE_SOURCE_DIR})
-set(BASICTOOL_INCLUDE_DIRS  ${CMAKE_CURRENT_SOURCE_DIR} PARENT_SCOPE)
+set(BASICTOOL_INCLUDE_DIRS  ${CMAKE_CURRENT_SOURCE_DIR})
+
+
 
 #===================================引入CMake配置文件========================
 if(NOT CMakeInit_FOUND)
@@ -31,9 +33,6 @@ if(NOT SetupProject_FOUND)
     include(SetupProject)
 endif(NOT SetupProject_FOUND)
 
-
-# ==================================引入外部包====================================
-# include(CMake/SetUpConfigurations.cmake)
 
 # =======================================添加子目录====================================
 Add_all_subdirectory()

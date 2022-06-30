@@ -14,7 +14,7 @@ set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${S
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
-
+target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # 此处必须要使用public链接， 因为Container是很多是header only 库，所以编译时候需要使用public选项
 # 当然如果不是header only那么可以使用private。
 target_link_libraries(${SharedLibName} PUBLIC "Platform")

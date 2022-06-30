@@ -18,6 +18,8 @@ target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MAC
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}/Core")
 target_include_directories(${SharedLibName} PRIVATE "${THIRD_PARTY_DIR}/TBB/include")
+target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
+
 target_link_directories(${SharedLibName} PRIVATE ${THIRD_PARTY_DIR}/TBB/Lib)
 target_link_libraries(${SharedLibName} PRIVATE "dbghelp;Winmm")
 
