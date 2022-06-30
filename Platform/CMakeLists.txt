@@ -9,13 +9,13 @@ FILE(GLOB_RECURSE SourceFiles ./*.cpp) # GLOB 递归获取./include/目录和子
 source_group("Header Files" FILES ${HeaderFiles})
 source_group("Source Files" FILES ${SourceFiles})
 add_library(${SharedLibName} SHARED ${HeaderFiles} ${SourceFiles})
-
+add_library(BasicTool::${SharedLibName} ALIAS ${SharedLibName})
 # source_group(TREE  ${CMAKE_CURRENT_SOURCE_DIR} FILES ${HeaderFiles} ${SourceFiles})
 set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${SECOND_FOLDER_NAME})
 
 # ==============================设置target属性=============================
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
-target_compile_definitions(${SharedLibName} PUBLIC "UNICODE; _UNICODE")
+target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}/Core")
 target_include_directories(${SharedLibName} PRIVATE "${THIRD_PARTY_DIR}/TBB/include")
 target_link_directories(${SharedLibName} PRIVATE ${THIRD_PARTY_DIR}/TBB/Lib)
