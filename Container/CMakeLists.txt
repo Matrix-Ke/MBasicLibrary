@@ -21,8 +21,8 @@ target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # add definition
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
-target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
-target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
+# target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
+# target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
 
 
 if(MSVC)

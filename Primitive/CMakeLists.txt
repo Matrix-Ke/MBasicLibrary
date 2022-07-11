@@ -12,7 +12,7 @@ set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${S
 
 # ==============================设置target属性=============================
 # public 和 private 尽量多注意
-target_link_libraries(${SharedLibName} PRIVATE BasicTool::Platform) 
+# target_link_libraries(${SharedLibName} PRIVATE BasicTool::Platform) 
 target_link_libraries(${SharedLibName} PRIVATE BasicTool::Container) 
 target_link_libraries(${SharedLibName} PRIVATE BasicTool::Math)
 add_dependencies(${SharedLibName} BasicTool::Platform)
@@ -25,8 +25,8 @@ target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
-target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
-target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
+# target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
+# target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
 
 
 
