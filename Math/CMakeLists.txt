@@ -22,9 +22,11 @@ target_link_libraries(${SharedLibName} PRIVATE BasicTool::Platform)
 add_dependencies(${SharedLibName}   BasicTool::Platform)
 #add  include dir
 target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
-
+# add definition
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
 target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
+target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
+target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
 
 if(MSVC)
     target_link_options(${SharedLibName} PRIVATE

@@ -11,10 +11,6 @@ add_library(BasicTool::${SharedLibName} ALIAS ${SharedLibName})
 set_target_properties(${SharedLibName} PROPERTIES FOLDER ${ROOT_FOLDER_NAME}/${SECOND_FOLDER_NAME})
 
 # ==============================设置target属性=============================
-target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
-target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
-target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
-target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # public 和 private 尽量多注意
 target_link_libraries(${SharedLibName} PRIVATE BasicTool::Platform) 
 target_link_libraries(${SharedLibName} PRIVATE BasicTool::Container) 
@@ -22,6 +18,17 @@ target_link_libraries(${SharedLibName} PRIVATE BasicTool::Math)
 add_dependencies(${SharedLibName} BasicTool::Platform)
 add_dependencies(${SharedLibName} BasicTool::Math)
 add_dependencies(${SharedLibName} BasicTool::Container)
+
+#add include
+target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
+# add definition
+target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
+target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
+target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
+target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")
+target_compile_definitions(${SharedLibName} PRIVATE "USE_MATRIX_NEW")
+
+
 
 if(MSVC)
     target_link_options(${SharedLibName} PRIVATE
