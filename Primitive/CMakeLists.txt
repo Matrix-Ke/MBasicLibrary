@@ -16,7 +16,12 @@ target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")
 target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # public 和 private 尽量多注意
-target_link_libraries(${SharedLibName} PRIVATE "Platform;Container;Math")
+target_link_libraries(${SharedLibName} PRIVATE BasicTool::Platform) 
+target_link_libraries(${SharedLibName} PRIVATE BasicTool::Container) 
+target_link_libraries(${SharedLibName} PRIVATE BasicTool::Math)
+add_dependencies(${SharedLibName} BasicTool::Platform)
+add_dependencies(${SharedLibName} BasicTool::Math)
+add_dependencies(${SharedLibName} BasicTool::Container)
 
 if(MSVC)
     target_link_options(${SharedLibName} PRIVATE
