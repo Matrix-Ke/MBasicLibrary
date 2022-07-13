@@ -20,7 +20,7 @@ add_dependencies(${SharedLibName} BasicTool::Platform)
 target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # add definition
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
-if(USE_UNICODE)
+if(${${USE_UNICODE}})
     target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 endif()
 # target_compile_definitions(${SharedLibName} PRIVATE "USE_STL_TYPE_TRAIT")

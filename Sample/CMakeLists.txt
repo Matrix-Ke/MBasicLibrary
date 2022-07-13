@@ -2,7 +2,6 @@ set(SampleName  "")
 GetCurrentDirectoryName(SampleName)
 project(SampleName)
 
-
-
-
-Add_all_subdirectory()
+if(${USE_BASICTOOL_SAMPLE})
+    Add_all_subdirectory()
+endif()

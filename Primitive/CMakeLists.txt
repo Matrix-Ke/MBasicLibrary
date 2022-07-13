@@ -23,7 +23,7 @@ add_dependencies(${SharedLibName} BasicTool::Container)
 target_include_directories(${SharedLibName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 # add definition
 target_compile_definitions(${SharedLibName} PRIVATE $<$<CONFIG:Debug>: _TEST_MACRO_>)
-if(USE_UNICODE)
+if(${USE_UNICODE})
     target_compile_definitions(${SharedLibName} PRIVATE "UNICODE; _UNICODE")
 endif()
 target_include_directories(${SharedLibName} PRIVATE "${PROJECT_SOURCE_DIR}")

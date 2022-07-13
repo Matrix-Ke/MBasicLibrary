@@ -16,6 +16,6 @@ target_link_libraries(${DemoName} BasicTool::Container)
 
 target_include_directories(${DemoName} PRIVATE ${BASICTOOL_INCLUDE_DIRS})
 
-if(USE_UNICODE)
+if(${USE_UNICODE})
     target_compile_definitions(${DemoName} PRIVATE "UNICODE;_UNICODE")
 endif()
